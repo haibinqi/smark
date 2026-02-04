@@ -1,0 +1,66 @@
+@import './styles/github-markdown.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.markdown-editor {
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.7;
+}
+
+textarea:focus {
+  caret-color: #137fec;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Fix list styles for markdown preview */
+.markdown-body ul {
+  list-style-type: disc;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+.markdown-body ul ul {
+  list-style-type: circle;
+}
+
+.markdown-body ul ul ul {
+  list-style-type: square;
+}
+
+/* Increase font size for markdown preview */
+.markdown-body {
+  font-size: 12px !important;
+}
+
+/* Adjust heading sizes */
+.markdown-body h1 {
+  font-size: 1.5em !important;
+}
+
+.markdown-body h2 {
+  font-size: 1.25em !important;
+}
+
+.markdown-body h3 {
+  font-size: 1.1em !important;
+}

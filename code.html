@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Minimalist Markdown Editor - Edit Mode</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .markdown-editor {
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.7;
+        }
+        textarea:focus {
+            caret-color: #137fec;
+        }
+        .toc-link {
+            transition: color 0.2s ease;
+        }
+        .toc-link:hover {
+            color: #137fec;
+        }::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d141b] dark:text-slate-100 transition-colors duration-200">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 px-4 md:px-10 h-14 flex items-center justify-center">
+<div class="w-full max-w-[800px] flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="group flex items-center gap-2 text-[#0d141b]/60 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="text-sm font-medium">New</span>
+</button>
+<button class="group flex items-center gap-2 text-[#0d141b]/60 dark:text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+<span class="text-sm font-medium">Clear</span>
+</button>
+<button class="group flex items-center gap-2 text-[#0d141b]/60 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+<span class="text-sm font-medium">Export</span>
+</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-gray-500">calendar_today</span>
+<span class="text-sm font-mono font-medium text-gray-600 dark:text-gray-300 tracking-tight">2023-10-27</span>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 flex justify-center px-4 relative">
+<div class="w-full max-w-[800px] flex flex-col gap-8 relative">
+<div class="w-full">
+<input class="w-full bg-transparent border-none p-0 text-[40px] font-bold tracking-tight text-[#0d141b] dark:text-slate-50 placeholder:text-gray-300 dark:placeholder:text-gray-700 focus:ring-0 focus:outline-none" placeholder="Untitled Document" type="text"/>
+</div>
+<div class="relative min-h-[500px]">
+<textarea class="markdown-editor w-full h-full min-h-[600px] bg-transparent border-none p-0 text-[16px] text-[#0d141b] dark:text-slate-200 placeholder:text-gray-300 dark:placeholder:text-gray-700 focus:ring-0 focus:outline-none resize-none overflow-hidden" placeholder="Start writing your Markdown here..."># Hello, World
+This is a minimalist markdown editor. 
+## Features
+- Distraction-free writing
+- Clean, refined UI
+- Dark mode support
+- One-click export
+## Getting Started
+Feel free to delete this and start your own story.
+### Customization
+You can change the theme and typography in settings.
+                </textarea>
+</div>
+<aside class="hidden xl:block absolute left-full ml-10 top-0 h-full">
+<div class="sticky top-24 w-44">
+<div class="text-[10px] uppercase tracking-[0.15em] text-[#0d141b]/30 dark:text-slate-500 font-bold mb-4">Table of Contents</div>
+<nav class="flex flex-col gap-3">
+<a class="toc-link text-xs text-[#0d141b]/40 dark:text-slate-400 font-medium" href="#">Hello, World</a>
+<a class="toc-link text-xs text-[#0d141b]/40 dark:text-slate-400 font-medium ml-3 border-l border-gray-200 dark:border-gray-800 pl-3" href="#">Features</a>
+<a class="toc-link text-xs text-[#0d141b]/40 dark:text-slate-400 font-medium ml-3 border-l border-gray-200 dark:border-gray-800 pl-3" href="#">Getting Started</a>
+<a class="toc-link text-xs text-[#0d141b]/40 dark:text-slate-400 font-medium ml-6 border-l border-gray-200 dark:border-gray-800 pl-3" href="#">Customization</a>
+</nav>
+</div>
+</aside>
+</div>
+</main>
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2">
+<button class="flex items-center justify-center gap-2 px-5 py-2.5 text-[#0d141b]/60 dark:text-slate-400 hover:text-[#0d141b] dark:hover:text-slate-50 transition-all active:scale-95 font-medium text-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 rounded-full">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+<span>Preview Mode</span>
+</button>
+<div class="w-px h-4 bg-gray-200 dark:bg-gray-700 mx-1"></div>
+<button class="flex items-center justify-center w-10 h-10 text-[#0d141b]/60 dark:text-slate-400 hover:text-[#0d141b] dark:hover:text-slate-50 transition-all active:scale-95 rounded-full border border-transparent hover:border-gray-200 dark:hover:border-gray-700">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-30 dark:opacity-10">
+<div class="absolute top-[10%] left-[5%] w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+<div class="absolute bottom-[10%] right-[5%] w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+
+</body></html>

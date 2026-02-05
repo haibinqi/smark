@@ -15,6 +15,9 @@ export default function TableOfContents({ content, inline = false }) {
         const text = match[2].trim()
         const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')
 
+        // 跳过空标题或 "Untitled Document"
+        if (!text || text === 'Untitled Document') continue
+
         result.push({ level, text, id })
       }
     }

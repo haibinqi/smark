@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-export default function TableOfContents({ content }) {
+export default function TableOfContents({ content, inline = false }) {
   const headings = useMemo(() => {
     if (!content) return []
 
@@ -42,6 +42,24 @@ export default function TableOfContents({ content }) {
     }
   }
 
+  // inline 模式：只返回导航内容，不包含容器
+  if (inline) {
+    return (
+      <nav className="flex flex-col gap-3">
+        {headings.map((heading) => (
+          <a
+            key={heading.id}
+            onClick={() => handleClick(heading.id)}
+            className={`toc-link text-xs text-[#0d141b]/40 hover:text-primary font-medium cursor-pointer transition-colors ${getIndent(heading.level)}`}
+          >
+            {heading.text}
+          </a>
+        ))}
+      </nav>
+    )
+  }
+
+  // 默认模式：包含完整容器
   return (
     <aside className="hidden xl:block absolute left-1/2 top-0 h-full ml-[410px]">
       <div className="sticky top-24 w-44">

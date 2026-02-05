@@ -32,6 +32,15 @@ function App() {
     URL.revokeObjectURL(url)
   }
 
+  const handleExportPDF = () => {
+    // 切换到预览模式
+    setMode('preview')
+    // 等待渲染完成后打印
+    setTimeout(() => {
+      window.print()
+    }, 100)
+  }
+
   const toggleMode = () => {
     setMode(prev => prev === 'edit' ? 'preview' : 'edit')
   }
@@ -58,6 +67,7 @@ function App() {
         onNew={handleNew}
         onClear={handleClear}
         onExport={handleExport}
+        onExportPDF={handleExportPDF}
       />
 
       <main className="pt-24 pb-32 flex justify-center px-4 relative">

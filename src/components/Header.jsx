@@ -1,4 +1,4 @@
-export default function Header({ onNew, onClear, onExport }) {
+export default function Header({ onNew, onClear, onExport, onExportPDF }) {
   const formatDate = () => {
     const now = new Date()
     return now.toISOString().split('T')[0]
@@ -28,6 +28,13 @@ export default function Header({ onNew, onClear, onExport }) {
           >
             <span className="material-symbols-outlined text-[20px]">ios_share</span>
             <span className="text-sm font-medium">Export</span>
+          </button>
+          <button
+            onClick={onExportPDF}
+            className="group flex items-center gap-2 text-[#0d141b]/60 hover:text-primary transition-colors"
+          >
+            <span className="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+            <span className="text-sm font-medium">PDF</span>
           </button>
         </div>
         <div className="flex items-center gap-4">

@@ -64,3 +64,60 @@ textarea:focus {
 .markdown-body h3 {
   font-size: 1.1em !important;
 }
+
+/* Print styles - hide UI elements and show only content */
+@media print {
+  /* Hide header */
+  header {
+    display: none !important;
+  }
+
+  /* Hide bottom toggle button */
+  button {
+    display: none !important;
+  }
+
+  /* Reset page layout */
+  body {
+    background: white !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Show only the markdown content */
+  .markdown-body {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Adjust heading sizes for print */
+  .markdown-body h1 {
+    font-size: 18pt !important;
+    page-break-after: avoid;
+  }
+
+  .markdown-body h2 {
+    font-size: 14pt !important;
+    page-break-after: avoid;
+  }
+
+  .markdown-body h3 {
+    font-size: 12pt !important;
+    page-break-after: avoid;
+  }
+
+  /* Avoid breaking inside code blocks and tables */
+  .markdown-body pre,
+  .markdown-body code,
+  .markdown-body table {
+    page-break-inside: avoid;
+  }
+
+  /* Hide URL after links for cleaner print */
+  .markdown-body a {
+    text-decoration: underline;
+  }
+}

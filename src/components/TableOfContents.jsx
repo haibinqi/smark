@@ -43,7 +43,7 @@ export default function TableOfContents({ content }) {
   }
 
   return (
-    <aside className="hidden xl:block absolute left-full ml-10 top-0 h-full">
+    <aside className="hidden xl:block absolute left-1/2 top-0 h-full ml-[410px]">
       <div className="sticky top-24 w-44">
         <div className="text-[10px] uppercase tracking-[0.15em] text-[#0d141b]/30 font-bold mb-4">
           Table of Contents

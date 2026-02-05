@@ -85,7 +85,7 @@ function App() {
                 <div className="flex-1 min-w-0">
                   <Preview content={previewContent} />
                 </div>
-                <div className="hidden xl:block w-44 pt-24 sticky top-24 h-fit">
+                <div className="hidden xl:block w-44 sticky top-24 h-fit">
                   <div className="text-[10px] uppercase tracking-[0.15em] text-[#0d141b]/30 font-bold mb-4">
                     Table of Contents
                   </div>

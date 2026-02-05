@@ -56,7 +56,7 @@ export default function Editor({ value, onChange }) {
       ref={textareaRef}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="markdown-editor w-full h-full min-h-[600px] bg-transparent border-none p-0 text-[12px] text-[#0d141b] placeholder:text-gray-300 focus:ring-0 focus:outline-none resize-none overflow-hidden"
+      className="markdown-editor w-full h-full min-h-[600px] bg-transparent border-none p-0 text-[12px] text-[#0d141b] placeholder:text-gray-300 focus:ring-0 focus:outline-none resize-y overflow-auto"
       placeholder="# Hello, World
 
 This is a minimalist markdown editor.

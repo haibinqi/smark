@@ -3,6 +3,7 @@ import Header from './components/Header'
 import TitleInput from './components/TitleInput'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
+import TableOfContents from './components/TableOfContents'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
 function App() {
@@ -61,6 +62,8 @@ function App() {
   const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
   const shortcutKey = isMac ? '⌘P' : 'Ctrl+P'
 
+  const previewContent = `# ${title}\n\n${content}`
+
   return (
     <div className="bg-background-light min-h-screen text-[#0d141b]">
       <Header
@@ -78,7 +81,10 @@ function App() {
             {mode === 'edit' ? (
               <Editor value={content} onChange={setContent} />
             ) : (
-              <Preview content={`# ${title}\n\n${content}`} />
+              <>
+                <Preview content={previewContent} />
+                <TableOfContents content={previewContent} />
+              </>
             )}
           </div>
         </div>

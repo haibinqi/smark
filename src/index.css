@@ -77,6 +77,11 @@ textarea:focus {
     display: none !important;
   }
 
+  /* Hide title input to avoid duplication */
+  input[type="text"] {
+    display: none !important;
+  }
+
   /* Reset page layout */
   body {
     background: white !important;
@@ -85,6 +90,7 @@ textarea:focus {
   main {
     padding: 0 !important;
     margin: 0 !important;
+    padding-top: 0 !important;
   }
 
   /* Show only the markdown content */

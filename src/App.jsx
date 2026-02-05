@@ -72,7 +72,7 @@ function App() {
 
       <main className="pt-24 pb-32 flex justify-center px-4 relative">
         <div className="w-full max-w-[800px] flex flex-col gap-8 relative">
-          <TitleInput value={title} onChange={setTitle} />
+          {mode === 'edit' && <TitleInput value={title} onChange={setTitle} />}
 
           <div className="relative min-h-[500px]">
             {mode === 'edit' ? (
